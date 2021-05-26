@@ -153,9 +153,8 @@ function loadActions() {
 
   (function markExternalLinks(){
     let links = elems('a');
-    const contentWrapperClass = '.content';
     if(links) {
-      Array.from(links).forEach(function(link, index){
+      Array.from(links).forEach(function(link){
         let target, rel, blank, noopener, attr1, attr2, url, isExternal;
         url = new URL(link.href);
         // definition of same origin: RFC 6454, section 4 (https://tools.ietf.org/html/rfc6454#section-4)
@@ -363,6 +362,24 @@ function loadActions() {
     }
     toggleMenu(event);
   });
+
+  (function backToTop(){
+    const toTop = elem("#toTop");
+    window.addEventListener("scroll", function(e) {
+      const lastKnownScrollPosition = window.scrollY;
+      if(lastKnownScrollPosition >= 200) {
+        toTop.style.display = "flex";
+        const viewPort = window.innerWidth;
+        const maxBodyWidth = 1240;
+        // if(viewPort > maxBodyWidth) {
+        //   toTop.style.right = `${((viewPort - maxBodyWidth) / 2)}px`;
+        // }
+        pushClass(toTop, active);
+      } else {
+        deleteClass(toTop, active);
+      }
+    })
+  })();
 
 }
 
