@@ -1,5 +1,7 @@
 # Compose
 
+----> This is the branch with private customisations by bb1950328. I hope I don't accidentally make a pull request from this branch...
+
 Compose is a [Hugo](https://gohugo.io/) theme for documentation websites, inspired by [forestry.io](https://forestry.io/docs/welcome/)'s docs page. The theme provides a simple navigation & structure.
 
 ![Hugo Compose Theme](https://github.com/onweru/compose/blob/master/images/tn.png)
