@@ -3,12 +3,12 @@
 <head>
   {{- partial "head" . }}
 </head>
-<body class="page-{{ .Kind }}">
+<body class="page-{{ .Kind }}" id="pagetop">
   <header class="nav_header">
     {{- partial "nav" . }}
   </header>
   <div class="main wrap pt-4">
-    {{- if eq .Section "docs" }}
+    {{- if or (eq .Section "docs") (and (ne site.Params.uniqueHomepage true) .IsHome) }}
     {{- partial "document" . }}
     {{- else }}
     {{- block "main" . }}{{ end }}
